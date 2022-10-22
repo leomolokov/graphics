@@ -1,0 +1,1 @@
+pyrcc5 -o C:\PythonProjects\GMCG_Lab2V1\dialog\resource_rc.py resource.qrc
