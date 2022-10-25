@@ -1,0 +1,1 @@
+pyuic5 -x C:\PythonProjects\GMCG_Lab2V1\dialog\dialog.ui -o C:\PythonProjects\GMCG_Lab2V1\dialog\dialog.py
