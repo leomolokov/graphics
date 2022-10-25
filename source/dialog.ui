@@ -32,7 +32,7 @@
       <x>0</x>
       <y>0</y>
       <width>1042</width>
-      <height>581</height>
+      <height>590</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -145,30 +145,96 @@
              </property>
              <item>
               <widget class="QPushButton" name="ParallelTransfButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/move.png</normaloff>:/icon/move.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QLabel" name="label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>100</height>
+                </size>
+               </property>
                <property name="text">
                 <string>a=</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="aEdit"/>
+              <widget class="QDoubleSpinBox" name="aEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="text">
                 <string>b=</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="bEdit"/>
+              <widget class="QDoubleSpinBox" name="bEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_3">
@@ -178,7 +244,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="cEdit"/>
+              <widget class="QDoubleSpinBox" name="cEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -198,8 +271,36 @@
              </property>
              <item>
               <widget class="QPushButton" name="ScaleButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/scale1.png</normaloff>:/icon/scale1.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -211,7 +312,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="kxEdit"/>
+              <widget class="QDoubleSpinBox" name="kxEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_5">
@@ -221,7 +329,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="kyEdit"/>
+              <widget class="QDoubleSpinBox" name="kyEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_6">
@@ -231,7 +346,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="kzEdit"/>
+              <widget class="QDoubleSpinBox" name="kzEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -251,8 +373,36 @@
              </property>
              <item>
               <widget class="QPushButton" name="RotateButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/rotate.png</normaloff>:/icon/rotate.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -264,7 +414,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="axEdit"/>
+              <widget class="QDoubleSpinBox" name="axEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_8">
@@ -274,7 +431,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="ayEdit"/>
+              <widget class="QDoubleSpinBox" name="ayEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_9">
@@ -284,7 +448,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="azEdit"/>
+              <widget class="QDoubleSpinBox" name="azEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -304,8 +475,36 @@
              </property>
              <item>
               <widget class="QPushButton" name="ShiftButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/scew.png</normaloff>:/icon/scew.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -324,7 +523,14 @@
                 <number>5</number>
                </property>
                <item row="0" column="3">
-                <widget class="QDoubleSpinBox" name="xzEdit"/>
+                <widget class="QDoubleSpinBox" name="xzEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="1" column="2">
                 <widget class="QLabel" name="label_13">
@@ -334,10 +540,24 @@
                 </widget>
                </item>
                <item row="1" column="3">
-                <widget class="QDoubleSpinBox" name="yzEdit"/>
+                <widget class="QDoubleSpinBox" name="yzEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QDoubleSpinBox" name="yxEdit"/>
+                <widget class="QDoubleSpinBox" name="yxEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_12">
@@ -347,7 +567,14 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QDoubleSpinBox" name="xyEdit"/>
+                <widget class="QDoubleSpinBox" name="xyEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="2">
                 <widget class="QLabel" name="label_11">
@@ -371,7 +598,14 @@
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QDoubleSpinBox" name="zxEdit"/>
+                <widget class="QDoubleSpinBox" name="zxEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="2" column="2">
                 <widget class="QLabel" name="label_15">
@@ -381,7 +615,14 @@
                 </widget>
                </item>
                <item row="2" column="3">
-                <widget class="QDoubleSpinBox" name="zyEdit"/>
+                <widget class="QDoubleSpinBox" name="zyEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -406,8 +647,36 @@
              </property>
              <item>
               <widget class="QPushButton" name="OppButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/opp.png</normaloff>:/icon/opp.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -419,7 +688,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="fxEdit"/>
+              <widget class="QDoubleSpinBox" name="fxEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_17">
@@ -429,7 +705,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="fyEdit"/>
+              <widget class="QDoubleSpinBox" name="fyEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_18">
@@ -439,7 +722,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="fzEdit"/>
+              <widget class="QDoubleSpinBox" name="fzEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -459,8 +749,32 @@
              </property>
              <item>
               <widget class="QPushButton" name="ConstSpinButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string>CR</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -472,7 +786,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="exEdit"/>
+              <widget class="QDoubleSpinBox" name="exEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_20">
@@ -482,7 +803,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="eyEdit"/>
+              <widget class="QDoubleSpinBox" name="eyEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_21">
@@ -492,7 +820,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="ezEdit"/>
+              <widget class="QDoubleSpinBox" name="ezEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QLabel" name="label_22">
@@ -507,15 +842,71 @@
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>
               <widget class="QPushButton" name="FullFitButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/fit.png</normaloff>:/icon/fit.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="FullFitButton_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>45</width>
+                 <height>45</height>
+                </size>
+               </property>
                <property name="text">
-                <string>PushButton</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/visibility.png</normaloff>:/icon/visibility.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -543,7 +934,7 @@
            <item>
             <widget class="QPushButton" name="BackButton">
              <property name="text">
-              <string>PushButton</string>
+              <string>Return Source Scene</string>
              </property>
             </widget>
            </item>
@@ -584,6 +975,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

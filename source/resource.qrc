@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file>../icon/fit.png</file>
+    <file>../icon/move.png</file>
+    <file>../icon/opp.png</file>
+    <file>../icon/rotate.png</file>
+    <file>../icon/scale1.png</file>
+    <file>../icon/scew.png</file>
+    <file>../icon/visibility.png</file>
+  </qresource>
+</RCC>

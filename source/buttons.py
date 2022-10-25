@@ -1,4 +1,4 @@
-from dialog.dialog import Ui_MainWindow
+from dialog import Ui_MainWindow
 from PyQt5.QtWidgets import QWidget
 
 class Buttons():

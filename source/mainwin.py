@@ -3,8 +3,8 @@ from PyQt5.QtWidgets import QMainWindow, QSizePolicy, QVBoxLayout
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 
-from dialog.dialog import Ui_MainWindow
-from dialog.buttons import Buttons
+from dialog import Ui_MainWindow
+from buttons import Buttons
 
 class MainWindow(QMainWindow, Ui_MainWindow, Buttons):
     def __init__(self, data):

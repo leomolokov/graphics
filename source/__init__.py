@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication
 
-from mainwin.mainwin import MainWindow
-from data.mydata import MyData
+from mainwin import MainWindow
+from mydata import MyData
 
 import sys
 
