@@ -82,6 +82,8 @@ class Buttons():
         gamma = acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz)))
         e_z = self.data.rot_around_y(gamma)
         self.data.rot_around_z(1)
+        e_z = self.data.rot_around_y(-gamma)
+        e_zx = self.data.rot_around_x(-beta)
 
     def perm_spin(self):
         self.spin_around_e()

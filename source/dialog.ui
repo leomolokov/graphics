@@ -32,7 +32,7 @@
       <x>0</x>
       <y>0</y>
       <width>1042</width>
-      <height>590</height>
+      <height>595</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -211,6 +211,15 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>1.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -234,6 +243,12 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -250,6 +265,12 @@
                  <width>40</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
                </property>
               </widget>
              </item>
@@ -319,6 +340,15 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>2.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -336,6 +366,15 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>2.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -352,6 +391,15 @@
                  <width>40</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>2.000000000000000</double>
                </property>
               </widget>
              </item>
@@ -421,6 +469,18 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-360.000000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>360.000000000000000</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>40.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -438,6 +498,18 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="minimum">
+                <double>-360.000000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>360.000000000000000</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
+               <property name="value">
+                <double>35.000000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -454,6 +526,15 @@
                  <width>40</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="minimum">
+                <double>-360.000000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>360.000000000000000</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
                </property>
               </widget>
              </item>
@@ -530,6 +611,12 @@
                    <height>30</height>
                   </size>
                  </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="2">
@@ -547,6 +634,12 @@
                    <height>30</height>
                   </size>
                  </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="1">
@@ -556,6 +649,12 @@
                    <width>40</width>
                    <height>30</height>
                   </size>
+                 </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -573,6 +672,15 @@
                    <width>40</width>
                    <height>30</height>
                   </size>
+                 </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>1.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -605,6 +713,12 @@
                    <height>30</height>
                   </size>
                  </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="2">
@@ -621,6 +735,12 @@
                    <width>40</width>
                    <height>30</height>
                   </size>
+                 </property>
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -695,6 +815,15 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Segments parallel to the x-axis will meet at this point</string>
+               </property>
+               <property name="minimum">
+                <double>-99.989999999999995</double>
+               </property>
+               <property name="singleStep">
+                <double>0.500000000000000</double>
+               </property>
               </widget>
              </item>
              <item>
@@ -712,6 +841,9 @@
                  <height>30</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Segments parallel to the y-axis will meet at this point</string>
+               </property>
               </widget>
              </item>
              <item>
@@ -728,6 +860,9 @@
                  <width>40</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="toolTip">
+                <string>Segments parallel to the z-axis will meet at this point</string>
                </property>
               </widget>
              </item>
@@ -860,6 +995,9 @@
                  <height>45</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Full Fit the Scene</string>
+               </property>
                <property name="text">
                 <string/>
                </property>
@@ -894,6 +1032,9 @@
                  <width>45</width>
                  <height>45</height>
                 </size>
+               </property>
+               <property name="toolTip">
+                <string>Show only visible</string>
                </property>
                <property name="text">
                 <string/>
@@ -969,7 +1110,7 @@
      <x>0</x>
      <y>0</y>
      <width>1050</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

@@ -1,1 +1,1 @@
-pyrcc5 -o C:\PythonProjects\GMCG_Lab2V1\main\resource_rc.py resource.qrc
+pyrcc5 -o C:\PythonProjects\GMCG_Lab2V1\source\resource_rc.py resource.qrc
