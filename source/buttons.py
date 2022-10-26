@@ -12,7 +12,10 @@ class Buttons():
         self.FullFitButton.clicked.connect(self.fit)
         self.BackButton.clicked.connect(self.roll_back)
 
-        self.ConstSpinButton.clicked.connect(self.perm_spin)
+        # self.ConstSpinButton.clicked.connect(self.perm_spin)
+        self.ConstSpinButton.pressed.connect(self.espin_press)
+        self.ConstSpinButton.released.connect(self.espin_release)
+        # self.timer.timeout.connect(self.every_second_while_pressed)
         #
         # self.DrawFacetsButton.clicked.connect(self.draw_facets_call)
         # self.VisibilityButton.clicked.connect(self.show_visibles)
@@ -63,6 +66,7 @@ class Buttons():
 
     def spin_around_e(self):
         from math import sqrt, acos, degrees
+        import time
 
         def len_v(vect):
             len_v = sqrt(vect[0] ** 2 + vect[1] ** 2 + vect[2] ** 2)
@@ -74,26 +78,37 @@ class Buttons():
                 result += M[i] * N[i]
             return result
 
-        e_zy = [0, self.eyEdit.value(), self.ezEdit.value()]
-        oz = [0, 0, 1]
-        try:
-            beta = degrees(acos(mult_M(e_zy, oz) / (len_v(e_zy) * len_v(oz))))
-        except ZeroDivisionError:
-            beta = 0
-        e_zx = [self.exEdit.value(), 0, self.ezEdit.value()]
-        try:
-            gamma = degrees(acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz))))
-        except ZeroDivisionError:
-            gamma = 0
-        self.data.rot_around_x(gamma)
-        self.data.rot_around_y(beta)
-        self.data.rot_around_z(1)
-        self.data.rot_around_y(-beta)
-        self.data.rot_around_x(-gamma)
+        while True:
+            e_zy = [0, self.eyEdit.value(), self.ezEdit.value()]
+            oz = [0, 0, 1]
+            try:
+                beta = degrees(acos(mult_M(e_zy, oz) / (len_v(e_zy) * len_v(oz))))
+            except ZeroDivisionError:
+                beta = 0
+            e_zx = [self.exEdit.value(), 0, self.ezEdit.value()]
+            try:
+                gamma = degrees(acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz))))
+            except ZeroDivisionError:
+                gamma = 0
+            self.data.rot_around_x(gamma)
+            self.data.rot_around_y(beta)
+            self.data.rot_around_z(1)
+            self.data.rot_around_y(-beta)
+            self.data.rot_around_x(-gamma)
+            time.sleep(1)
 
     def perm_spin(self):
         self.spin_around_e()
         self.draw_source_call()
+
+    def espin_press(self):
+        self.timer.start(1000)
+
+    def espin_release(self):
+        self.timer.stop()
+
+    def every_second_while_pressed(self):
+        self.perm_spin()
 
     # def draw_facets_call(self):
     #   self.draw_facets(self.axes)
