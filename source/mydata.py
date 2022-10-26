@@ -112,7 +112,11 @@ class MyData(Point, Segment, Facet):
     def scale_z(self, k):
         self.scale(k, 2)
 
-    def rotate(self, angle, axis=0):
+    def applied_rotation(self, angle, axis=0):
+        R = self.rotate(angle, axis)
+        self.apply(R)
+
+    def rotate(self, angle, axis):
         import math
         R = self.eye()
         ax2 = (axis + 1) % 3
@@ -120,16 +124,11 @@ class MyData(Point, Segment, Facet):
         angle = math.radians(angle)
         cos = math.cos(angle)
         sin = math.sin(angle)
-
         R[ax2][ax2] = cos
         R[ax3][ax3] = cos
         R[ax2][ax3] = sin
         R[ax3][ax2] = -sin
-        # self.apply(R)
         return R
-
-    def applied_rotation(self, angle, axis=0):
-        self.apply(self.rotate(self))
 
     def rot_around_x(self, alpha_grad: float):
         self.applied_rotation(alpha_grad, 0)
