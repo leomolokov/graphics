@@ -139,15 +139,6 @@ class MyData(Point, Segment, Facet):
     def rot_around_z(self, alpha_grad: float):
         self.applied_rotation(alpha_grad, 2)
 
-    # def rot_around_x(self, alpha_grad: float):
-    #     self.rotate(alpha_grad, 0)
-    #
-    # def rot_around_y(self, alpha_grad: float):
-    #     self.rotate(alpha_grad, 1)
-    #
-    # def rot_around_z(self, alpha_grad: float):
-    #     self.rotate(alpha_grad, 2)
-
     def scew(self, k, axis1=0, axis2=0):
         scew = self.eye()
         scew[axis1][axis2] = k
