@@ -13,10 +13,10 @@ class Buttons():
         self.FullFitButton.clicked.connect(self.fit)
         self.BackButton.clicked.connect(self.roll_back)
 
-        # self.ConstSpinButton.clicked.connect(self.perm_spin)
-        self.ConstSpinButton.pressed.connect(self.espin_press)
-        self.ConstSpinButton.released.connect(self.espin_release)
-        # self.timer.timeout.connect(self.every_second_while_pressed)
+        # self.ConstSpinButton.pressed.connect(self.espin_press)
+        # self.ConstSpinButton.released.connect(self.espin_release)
+
+        self.ConstSpinButton.stateChanged.connect(self.check_espin)
 
         self.DrawFacetsButton.clicked.connect(self.draw_facets)
         # self.VisibilityButton.clicked.connect(self.show_visibles)
@@ -112,6 +112,11 @@ class Buttons():
         self.timer.stop()
         self.timer = None
 
+    def check_espin(self, state):
+        if state == QtCore.Qt.Checked:
+            print("Wow! You like programming.")
+        else:
+            print("Oh no!, You don't like programming.")
 
     # def show_visibles(self):
     #   self.define_visibility(self.axes)

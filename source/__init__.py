@@ -7,7 +7,7 @@ import sys
 
 def main():
     data = MyData()
-    data.read('scene.txt')
+    data.read('tetrahedron.txt')
     app = QApplication(sys.argv)
     main = MainWindow(data)
     main.show()
