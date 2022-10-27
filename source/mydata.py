@@ -241,23 +241,17 @@ class MyData(Point, Segment, Facet):
             axes.add_line(line)
 
     def draw_facets(self, axes):
+        from matplotlib.patches import Polygon
+
         self.draw_grid(axes)
 
         cycol = cycle('bgrcmyk')
 
-        for facet in self.data.facets:
-            coord_link0 = int(facet.peaks[0])
-            coord_link1 = int(facet.peaks[1])
-            coord_link2 = int(facet.peaks[2])
-            coord_link3 = int(facet.peaks[3])
-            x0 = self.data.points[coord_link0][0]
-            y0 = self.data.points[coord_link0][1]
-            x1 = self.data.points[coord_link1][0]
-            y1 = self.data.points[coord_link1][1]
-            line = Line2D([x0, x1], [y0, y1], color=next(cycol))
-            axes.add_line(line)
-
-        self.redraw()
+        for facet in self.facets:
+            z = Polygon([self.points[n].coords[:2] for n in facet.peaks], closed=True)
+            z.fill = False
+            z.set_edgecolor(next(cycol))
+            axes.add_patch(z)
 
     # def define_visibility(self, axes):
     #

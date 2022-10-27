@@ -1,5 +1,6 @@
 from dialog import Ui_MainWindow
 from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import QTimer
 
 class Buttons():
     def initButtons(self):
@@ -16,8 +17,8 @@ class Buttons():
         self.ConstSpinButton.pressed.connect(self.espin_press)
         self.ConstSpinButton.released.connect(self.espin_release)
         # self.timer.timeout.connect(self.every_second_while_pressed)
-        #
-        # self.DrawFacetsButton.clicked.connect(self.draw_facets_call)
+
+        self.DrawFacetsButton.clicked.connect(self.draw_facets)
         # self.VisibilityButton.clicked.connect(self.show_visibles)
 
     def draw_source_call(self):
@@ -78,40 +79,39 @@ class Buttons():
                 result += M[i] * N[i]
             return result
 
-        while True:
-            e_zy = [0, self.eyEdit.value(), self.ezEdit.value()]
-            oz = [0, 0, 1]
-            try:
-                beta = degrees(acos(mult_M(e_zy, oz) / (len_v(e_zy) * len_v(oz))))
-            except ZeroDivisionError:
-                beta = 0
-            e_zx = [self.exEdit.value(), 0, self.ezEdit.value()]
-            try:
-                gamma = degrees(acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz))))
-            except ZeroDivisionError:
-                gamma = 0
-            self.data.rot_around_x(gamma)
-            self.data.rot_around_y(beta)
-            self.data.rot_around_z(1)
-            self.data.rot_around_y(-beta)
-            self.data.rot_around_x(-gamma)
-            time.sleep(1)
+        e_zy = [0, self.eyEdit.value(), self.ezEdit.value()]
+        oz = [0, 0, 1]
+        try:
+            beta = degrees(acos(mult_M(e_zy, oz) / (len_v(e_zy) * len_v(oz))))
+        except ZeroDivisionError:
+            beta = 0
+        e_zx = [self.exEdit.value(), 0, self.ezEdit.value()]
+        try:
+            gamma = degrees(acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz))))
+        except ZeroDivisionError:
+            gamma = 0
+        self.data.rot_around_x(gamma)
+        self.data.rot_around_y(beta)
+        self.data.rot_around_z(1)
+        self.data.rot_around_y(-beta)
+        self.data.rot_around_x(-gamma)
 
     def perm_spin(self):
         self.spin_around_e()
         self.draw_source_call()
 
     def espin_press(self):
-        self.timer.start(1000)
+        timer = QTimer()
+        self.timer = timer
+        timer.timeout.connect(self.perm_spin)
+        timer.start(100)
 
     def espin_release(self):
+        if self.timer is None:
+            return
         self.timer.stop()
+        self.timer = None
 
-    def every_second_while_pressed(self):
-        self.perm_spin()
-
-    # def draw_facets_call(self):
-    #   self.draw_facets(self.axes)
 
     # def show_visibles(self):
     #   self.define_visibility(self.axes)

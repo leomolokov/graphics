@@ -25,7 +25,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, Buttons):
         self.axes = axes
         self.canvas = canvas
 
-        self.draw_segments()
+        #self.draw_segments()
 
         self.initButtons()
 
@@ -37,4 +37,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, Buttons):
 
     def draw_segments(self):
         self.data.draw_segments(self.axes)
+        self.redraw()
+
+    def draw_facets(self):
+        self.data.draw_facets(self.axes)
         self.redraw()
