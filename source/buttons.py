@@ -100,23 +100,29 @@ class Buttons():
         self.spin_around_e()
         self.draw_source_call()
 
-    def espin_press(self):
-        timer = QTimer()
-        self.timer = timer
-        timer.timeout.connect(self.perm_spin)
-        timer.start(100)
-
-    def espin_release(self):
-        if self.timer is None:
-            return
-        self.timer.stop()
-        self.timer = None
+    # def espin_press(self):
+    #     timer = QTimer()
+    #     self.timer = timer
+    #     timer.timeout.connect(self.perm_spin)
+    #     timer.start(100)
+    #
+    # def espin_release(self):
+    #     if self.timer is None:
+    #         return
+    #     self.timer.stop()
+    #     self.timer = None
 
     def check_espin(self, state):
-        if state == QtCore.Qt.Checked:
-            print("Wow! You like programming.")
+        if state == 2:
+            timer = QTimer()
+            self.timer = timer
+            timer.timeout.connect(self.perm_spin)
+            timer.start(100)
         else:
-            print("Oh no!, You don't like programming.")
+            if self.timer is None:
+                return
+            self.timer.stop()
+            self.timer = None
 
     # def show_visibles(self):
     #   self.define_visibility(self.axes)
