@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QMainWindow, QSizePolicy, QVBoxLayout
-from PyQt5.QtCore import QTimer
 
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
@@ -28,8 +27,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, Buttons):
         #self.draw_segments()
 
         self.initButtons()
-
-        timer = QTimer(self)
 
     def redraw(self):
         self.canvas.draw()

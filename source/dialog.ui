@@ -989,12 +989,15 @@
               </layout>
              </item>
              <item>
-              <widget class="QSlider" name="horizontalSlider">
+              <widget class="QSlider" name="SpeedSlider">
+               <property name="minimum">
+                <number>1</number>
+               </property>
                <property name="maximum">
                 <number>100</number>
                </property>
                <property name="value">
-                <number>100</number>
+                <number>1</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -1044,7 +1047,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="FullFitButton_2">
+              <widget class="QPushButton" name="VisibilityButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1140,7 +1143,7 @@
      <x>0</x>
      <y>0</y>
      <width>1050</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

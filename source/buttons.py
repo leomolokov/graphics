@@ -19,7 +19,7 @@ class Buttons():
         self.ConstSpinButton.stateChanged.connect(self.check_espin)
 
         self.DrawFacetsButton.clicked.connect(self.draw_facets)
-        # self.VisibilityButton.clicked.connect(self.show_visibles)
+        self.VisibilityButton.clicked.connect(self.show_visibles)
 
     def draw_source_call(self):
         self.draw_segments()
@@ -79,22 +79,23 @@ class Buttons():
                 result += M[i] * N[i]
             return result
 
+        e = [self.exEdit.value(), self.eyEdit.value(), self.ezEdit.value()]
         e_zy = [0, self.eyEdit.value(), self.ezEdit.value()]
         oz = [0, 0, 1]
+        ox = [1, 0, 0]
         try:
             beta = degrees(acos(mult_M(e_zy, oz) / (len_v(e_zy) * len_v(oz))))
         except ZeroDivisionError:
             beta = 0
-        e_zx = [self.exEdit.value(), 0, self.ezEdit.value()]
+        self.data.rot_around_x(beta)
         try:
-            gamma = degrees(acos(mult_M(e_zx, oz) / (len_v(e_zx) * len_v(oz))))
+            gamma = 90 - degrees(acos(mult_M(e, ox) / (len_v(e) * len_v(ox))))
         except ZeroDivisionError:
             gamma = 0
-        self.data.rot_around_x(gamma)
-        self.data.rot_around_y(beta)
+        self.data.rot_around_y(-gamma)
         self.data.rot_around_z(1)
-        self.data.rot_around_y(-beta)
-        self.data.rot_around_x(-gamma)
+        self.data.rot_around_y(gamma)
+        self.data.rot_around_x(-beta)
 
     def perm_spin(self):
         self.spin_around_e()
@@ -117,13 +118,13 @@ class Buttons():
             timer = QTimer()
             self.timer = timer
             timer.timeout.connect(self.perm_spin)
-            timer.start(100)
+            timer.start(self.SpeedSlider.value())
         else:
             if self.timer is None:
                 return
             self.timer.stop()
             self.timer = None
 
-    # def show_visibles(self):
-    #   self.define_visibility(self.axes)
-    #   self.draw_facets_call()
+    def show_visibles(self):
+      self.data.define_visibility(self.axes)
+      self.data.draw_facets()

@@ -17,6 +17,7 @@ class Point:
             result.coords.append(sum(transform[j][i] * self.coords[j] for j in range(len(self.coords))))
         return result
 
+
     def __sub__(self, other):
         result = Point()
         result.coords = [a - b for a, b in zip(self.coords, other.coords)]
@@ -46,12 +47,18 @@ class Facet:
         self.peaks = [int(x) for x in f.readline().split(' ')]
         self.visible = False
 
+    def vector_mult(self, v1, v2):
+        result = Point()
+        result.coords.append(v1.coords[1] * v2.coords[2] - v1.coords[2] * v2.coords[1])
+        result.coords.append(v1.coords[2] * v2.coords[0] - v1.coords[0] * v2.coords[2])
+        result.coords.append(v1.coords[0] * v2.coords[1] - v1.coords[1] * v2.coords[0])
+        result.coords.append(0)
+        return result
 
 class Vector:
     def __init__(self):
         self.vcoords = []
         self.vlen = 0
-
 
 class MyData(Point, Segment, Facet):
     def __init__(self):
@@ -254,4 +261,8 @@ class MyData(Point, Segment, Facet):
             axes.add_patch(z)
 
     # def define_visibility(self, axes):
-    #
+    #     for facet in self.facets:
+    #         v1 = self.points[0] - self.points[1]
+    #         v2 = self.points[2] - self.points[1]
+    #         normal = facet.vector_mult(v1, v2)
+    #         A =
