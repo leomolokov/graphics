@@ -55,10 +55,14 @@ class Facet:
         result.coords.append(0)
         return result
 
-class Vector:
-    def __init__(self):
-        self.vcoords = []
-        self.vlen = 0
+    def scalar_mult(self, v1, v2):
+        scalar = v1[0].coords[0] * v2.coords[0] + v1[0].coords[1] * v2.coords[1] + v1[0].coords[2] * v2.coords[2]
+        return scalar
+
+# class Vector:
+#     def __init__(self):
+#         self.vcoords = []
+#         self.vlen = 0
 
 class MyData(Point, Segment, Facet):
     def __init__(self):
@@ -255,14 +259,57 @@ class MyData(Point, Segment, Facet):
         cycol = cycle('bgrcmyk')
 
         for facet in self.facets:
-            z = Polygon([self.points[n].coords[:2] for n in facet.peaks], closed=True)
-            z.fill = False
-            z.set_edgecolor(next(cycol))
-            axes.add_patch(z)
+            if facet.visible == True:
+                z = Polygon([self.points[n].coords[:2] for n in facet.peaks], closed=True)
+                z.fill = False
+                z.set_edgecolor(next(cycol))
+                axes.add_patch(z)
+            else:
+                continue
 
-    # def define_visibility(self, axes):
-    #     for facet in self.facets:
-    #         v1 = self.points[0] - self.points[1]
-    #         v2 = self.points[2] - self.points[1]
-    #         normal = facet.vector_mult(v1, v2)
-    #         A =
+    def define_visibility(self, axes):
+        for facet in self.facets:
+            v1 = self.points[0] - self.points[1]
+            v2 = self.points[2] - self.points[1]
+            normal = facet.vector_mult(v1, v2)
+
+            A = Point()
+            xs = []
+            ys = []
+            zs = []
+
+            for point in self.points:
+                xs.append(point.coords[0])
+                ys.append(point.coords[1])
+                zs.append(point.coords[2])
+
+            minx = min(xs)
+            maxx = max(xs)
+            miny = min(ys)
+            maxy = max(ys)
+            minz = min(zs)
+            maxz = max(zs)
+
+            mid_x = (maxx + minx) / 2
+            mid_y = (maxy + miny) / 2
+            mid_z = (maxz + minz) / 2
+
+            A.coords.append(mid_x)
+            A.coords.append(mid_y)
+            A.coords.append(mid_z)
+            A.coords.append(1)
+
+            e = A - self.points[0]
+
+            if facet.scalar_mult(normal, e) > 0:
+                normal *= (-1)
+
+            oz = Point()
+            oz.coords.append(0)
+            oz.coords.append(0)
+            oz.coords.append(1)
+            oz.coords.append(0)
+            if facet.scalar_mult(normal, oz) < 0:
+                facet.visible = True
+            else:
+                continue

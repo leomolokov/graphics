@@ -101,18 +101,6 @@ class Buttons():
         self.spin_around_e()
         self.draw_source_call()
 
-    # def espin_press(self):
-    #     timer = QTimer()
-    #     self.timer = timer
-    #     timer.timeout.connect(self.perm_spin)
-    #     timer.start(100)
-    #
-    # def espin_release(self):
-    #     if self.timer is None:
-    #         return
-    #     self.timer.stop()
-    #     self.timer = None
-
     def check_espin(self, state):
         if state == 2:
             timer = QTimer()
@@ -127,4 +115,5 @@ class Buttons():
 
     def show_visibles(self):
       self.data.define_visibility(self.axes)
-      self.data.draw_facets()
+      # self.data.draw_facets(self.axes)
+      self.draw_facets
