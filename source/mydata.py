@@ -59,7 +59,7 @@ class Facet:
         result.coords.append(v1.coords[1] * v2.coords[2] - v1.coords[2] * v2.coords[1])
         result.coords.append(v1.coords[2] * v2.coords[0] - v1.coords[0] * v2.coords[2])
         result.coords.append(v1.coords[0] * v2.coords[1] - v1.coords[1] * v2.coords[0])
-        result.coords.append(0)
+        result.coords.append(0) #if the last coordinate of a Point() is equal to "0", then it is a Vector
         return result
 
     def scalar_mult(self, v1, v2):
@@ -303,18 +303,29 @@ class MyData(Point, Segment, Facet):
 
     def define_visibility(self, axes):
         for facet in self.facets:
-            v1 = self.points[facet.peaks[0]] - self.points[facet.peaks[1]]
-            v2 = self.points[facet.peaks[2]] - self.points[facet.peaks[1]]
+            v1 = self.points[facet.peaks[1]] - self.points[facet.peaks[0]]
+            v2 = self.points[facet.peaks[-1]] - self.points[facet.peaks[0]]
             normal = facet.vector_mult(v1, v2)
 
-            h, w, d = self.define_dimes()
+            # h, w, d = self.define_dimes()
+            # A = self.figure_center(h, w, d)
 
-            A = self.figure_center(h, w, d)
+            A = Point()
+            dx, dy, dz = self.deltas_to_center()
+            A.coords.append(dx)
+            A.coords.append(dy)
+            A.coords.append(dz)
+            A.coords.append(1)
 
             e = A - self.points[0]
 
             if facet.scalar_mult(normal, e) > 0:
                 normal *= (-1)
 
-            # facet.visible = facet.scalar_mult(normal, oz) < 0
-            facet.visible = normal.coords[2] < 0
+            oz = Point()
+            oz.coords.append(0)
+            oz.coords.append(0)
+            oz.coords.append(1)
+            oz.coords.append(0)
+            facet.visible = facet.scalar_mult(normal, oz) < 0
+            # facet.visible = normal.coords[2] > 0
