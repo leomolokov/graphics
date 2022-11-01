@@ -30,6 +30,13 @@ class Point:
         result.coords[-1] = 1
         return result
 
+    def __imul__(self, other):
+        result = Point()
+        for coord in self.coords:
+            coord *= other
+            result.coords.append(coord)
+        return result
+
     def paral_transf(self, a, b, c):
         return self + Point([a, b, c, 1])
 
@@ -56,7 +63,8 @@ class Facet:
         return result
 
     def scalar_mult(self, v1, v2):
-        scalar = v1[0].coords[0] * v2.coords[0] + v1[0].coords[1] * v2.coords[1] + v1[0].coords[2] * v2.coords[2]
+        # scalar = sum(p * q for p, q in zip(v1.coords, v2.coords))
+        scalar = v1.coords[0] * v2.coords[0] + v1.coords[1] * v2.coords[1] + v1.coords[2] * v2.coords[2]
         return scalar
 
 # class Vector:
@@ -97,6 +105,37 @@ class MyData(Point, Segment, Facet):
     def apply(self, transform): #applies regular numbers from list to an object points as a class exemplare - Point
         for i, p in enumerate(self.points):
             self.points[i] = p.apply(transform)
+
+    def define_dimes(self): #defines dimensions (profile) of a figure
+        xs = []
+        ys = []
+        zs = []
+
+        for point in self.points:
+            xs.append(point.coords[0])
+            ys.append(point.coords[1])
+            zs.append(point.coords[2])
+
+        height = max(ys) - min(ys)
+        width = max(xs) - min(xs)
+        depth = max(zs) - min(zs)
+
+        return height, width, depth
+
+    def figure_center(self, h, w, d):
+        A = Point()
+
+        mid_h = h / 2
+        mid_w = w / 2
+        mid_d = d / 2
+
+        A.coords.append(mid_w)
+        A.coords.append(mid_h)
+        A.coords.append(mid_d)
+        A.coords.append(1)
+
+        return A
+
 
     def eye(self):
         eye = [[0] * 4 for i in range(4)]
@@ -269,47 +308,26 @@ class MyData(Point, Segment, Facet):
 
     def define_visibility(self, axes):
         for facet in self.facets:
-            v1 = self.points[0] - self.points[1]
-            v2 = self.points[2] - self.points[1]
+            v1 = self.points[facet.peaks[0]] - self.points[facet.peaks[1]]
+            v2 = self.points[facet.peaks[2]] - self.points[facet.peaks[1]]
             normal = facet.vector_mult(v1, v2)
 
-            A = Point()
-            xs = []
-            ys = []
-            zs = []
+            h, w, d = self.define_dimes()
 
-            for point in self.points:
-                xs.append(point.coords[0])
-                ys.append(point.coords[1])
-                zs.append(point.coords[2])
-
-            minx = min(xs)
-            maxx = max(xs)
-            miny = min(ys)
-            maxy = max(ys)
-            minz = min(zs)
-            maxz = max(zs)
-
-            mid_x = (maxx + minx) / 2
-            mid_y = (maxy + miny) / 2
-            mid_z = (maxz + minz) / 2
-
-            A.coords.append(mid_x)
-            A.coords.append(mid_y)
-            A.coords.append(mid_z)
-            A.coords.append(1)
+            A = self.figure_center(h, w, d)
 
             e = A - self.points[0]
 
             if facet.scalar_mult(normal, e) > 0:
                 normal *= (-1)
 
-            oz = Point()
-            oz.coords.append(0)
-            oz.coords.append(0)
-            oz.coords.append(1)
-            oz.coords.append(0)
-            if facet.scalar_mult(normal, oz) < 0:
-                facet.visible = True
-            else:
-                continue
+            # oz = Point()
+            # oz.coords.append(0)
+            # oz.coords.append(0)
+            # oz.coords.append(1)
+            # oz.coords.append(0)
+            # if
+            # facet.visible = facet.scalar_mult(normal, oz) < 0
+            facet.visible = normal.coords[2] < 0
+            # else:
+            #     continue

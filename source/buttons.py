@@ -116,4 +116,4 @@ class Buttons():
     def show_visibles(self):
       self.data.define_visibility(self.axes)
       # self.data.draw_facets(self.axes)
-      self.draw_facets
+      self.draw_facets()
