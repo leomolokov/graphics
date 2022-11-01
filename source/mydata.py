@@ -116,8 +116,8 @@ class MyData(Point, Segment, Facet):
             ys.append(point.coords[1])
             zs.append(point.coords[2])
 
-        height = max(ys) - min(ys)
-        width = max(xs) - min(xs)
+        height = max(xs) - min(xs)
+        width = max(ys) - min(ys)
         depth = max(zs) - min(zs)
 
         return height, width, depth
@@ -129,13 +129,28 @@ class MyData(Point, Segment, Facet):
         mid_w = w / 2
         mid_d = d / 2
 
-        A.coords.append(mid_w)
         A.coords.append(mid_h)
+        A.coords.append(mid_w)
         A.coords.append(mid_d)
         A.coords.append(1)
 
         return A
 
+    def deltas_to_center(self):
+        xs = []
+        ys = []
+        zs = []
+
+        for point in self.points:
+            xs.append(point.coords[0])
+            ys.append(point.coords[1])
+            zs.append(point.coords[2])
+
+        dx = (max(xs) + min(xs)) / 2
+        dy = (max(ys) + min(ys)) / 2
+        dz = (max(zs) + min(zs)) / 2
+
+        return dx, dy, dz
 
     def eye(self):
         eye = [[0] * 4 for i in range(4)]
@@ -234,26 +249,10 @@ class MyData(Point, Segment, Facet):
         self.opp(k, 2)
 
     def fullfit(self):
-        xs = []
-        ys = []
-
-        for point in self.points:
-            xs.append(point.coords[0])
-            ys.append(point.coords[1])
-
-        minx = min(xs)
-        maxx = max(xs)
-        miny = min(ys)
-        maxy = max(ys)
-
-        h = maxy - miny
-        w = maxx - minx
-
-        dx = (maxx+minx)/2
-        dy = (maxy+miny)/2
-
+        dx, dy, dz = self.deltas_to_center()
         self.paral_transf(-dx, -dy, 0)
 
+        h, w, d = self.define_dimes()
         k_1 = 58/h
         k_2 = 58/w
 
@@ -261,8 +260,6 @@ class MyData(Point, Segment, Facet):
 
         for i in range(3):
             self.scale(mink, i)
-
-
 
     def draw_grid(self, axes):
         # axes.plot()
@@ -303,8 +300,6 @@ class MyData(Point, Segment, Facet):
                 z.fill = False
                 z.set_edgecolor(next(cycol))
                 axes.add_patch(z)
-            else:
-                continue
 
     def define_visibility(self, axes):
         for facet in self.facets:
@@ -321,13 +316,5 @@ class MyData(Point, Segment, Facet):
             if facet.scalar_mult(normal, e) > 0:
                 normal *= (-1)
 
-            # oz = Point()
-            # oz.coords.append(0)
-            # oz.coords.append(0)
-            # oz.coords.append(1)
-            # oz.coords.append(0)
-            # if
             # facet.visible = facet.scalar_mult(normal, oz) < 0
             facet.visible = normal.coords[2] < 0
-            # else:
-            #     continue
