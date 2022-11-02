@@ -317,7 +317,7 @@ class MyData(Point, Segment, Facet):
             A.coords.append(dz)
             A.coords.append(1)
 
-            e = A - self.points[0]
+            e = A - self.points[facet.peaks[0]]
 
             if facet.scalar_mult(normal, e) > 0:
                 normal *= (-1)
